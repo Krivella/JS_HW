@@ -17,7 +17,12 @@ let to = 100;
 function calc (goods, from, to){
 	if ( typeof from !== 'number' || typeof to !== 'number') return false;
 	if ( typeof goods !== 'object') return false;
-	for (let key in goods){if (goods[key].price>=from && goods[key].price<to) return goodsGoodPrice[key] = goods[key]};
+	for (let key in goods){
+		if (goods[key].price>=from && goods[key].price<to) {
+	 goodsGoodPrice[key] = goods[key];
+   }
+}
+return goodsGoodPrice;
 }
 console.log(calc(goods, from, to));
 
@@ -44,6 +49,22 @@ console.log(calc(goods, from, to));
       	for (let book of books){if (book.author === author)  newArr.push(book.title)}
       	return newArr;	 
       }
-  console.log(bookOfAuthor(books, "лермонтов"))
+  console.log(bookOfAuthor(books, "Лермонтов"))
 
 
+// //  Написать функцию, которая принимает на вход объект obj (например, goods), название (title) и количество (countToCart)
+//    . Если значение title не строка, obj не объект, а count не число, функция прерывает свою работу и возвращает false.
+//    Функция должна найти товар с указанным названием (title): если количество позволяет, то уменьшить значение свойства
+//    count в переданном объекте на countToCart вернуть true, если не позволяет, то вывести информацию об этом в консоль и
+//    вернуть false.
+
+function newGoods (obj, title, countToCart){
+	 obj = {}
+	let newObj= {}
+	if (typeof title !== "string" || typeof obj !=="object" || typeof countToCart !=="number") return false
+		for(let something in obj){
+		if (something.title===title && obj[something].count>countToCart){
+				newObj[something].count=obj[something].count-=countToCart}
+				 return true}   console.log("Скидку применить нельзя") 
+return newObj;
+}
