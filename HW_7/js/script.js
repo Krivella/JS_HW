@@ -59,12 +59,13 @@ console.log(calc(goods, from, to));
 //    вернуть false.
 
 function newGoods (obj, title, countToCart){
-	 obj = {}
-	let newObj= {}
+	
 	if (typeof title !== "string" || typeof obj !=="object" || typeof countToCart !=="number") return false
 		for(let something in obj){
-		if (something.title===title && obj[something].count>countToCart){
-				newObj[something].count=obj[something].count-=countToCart}
-				 return true}   console.log("Скидку применить нельзя") 
-return newObj;
+		if (obj[something].title===title && obj[something].count>countToCart){
+				obj[something].count-=countToCart; 
+				return true
+				 }   
+}
+return false
 }
