@@ -57,16 +57,29 @@ let booksByGenre = [
     }
 ];
 
+// <div>
+//     <h2></h2> название жанра
+//     <div class="books"> все книги одного жанра
+//         <article> книга
+//             <span></span> название книги
+//             <img> обложка
+//             <p></p> описание
+//             <a>Читать</a>
+//         </article>
+//     </div>
+// </div>
+
 
 function modelHTML( booksByGenre, booksSection){ 
 
     for (let book of booksByGenre){
-    let booksSection = document.querySelector('.books-section');
+    
     let genreCard = document.createElement('div');
     genreCard.classList.add('book-card');
 
     let genreName = document.createElement('h2');
     genreName.innerText = book.genreName;
+    genreName.classList.add('header')
 
     let bookCard = document.createElement('div');
     bookCard.classList.add('books');
@@ -76,6 +89,7 @@ function modelHTML( booksByGenre, booksSection){
     
         let span = document.createElement('span');
         span.innerText = bookName.title
+        span.classList.add('span');
 
         let img= document.createElement('img');
         img.classList.add("card__image")
@@ -83,10 +97,12 @@ function modelHTML( booksByGenre, booksSection){
 
         let description = document.createElement('p');
         description.innerText = bookName.description
+        description.classList.add('description');
 
         let link = document.createElement('a')
         link.innerHTML = `
         <a>Читать</a>`
+        link.classList.add('link');
     articles.append(span, img, description, link)
     bookCard.append(articles)
     }
@@ -94,5 +110,6 @@ function modelHTML( booksByGenre, booksSection){
     genreCard.append(genreName, bookCard)
     booksSection.append(genreCard)
     }
- console.log(modelHTML(booksByGenre, booksSection))
+ 
 }
+modelHTML(booksByGenre, document.querySelector('.books-section'))
