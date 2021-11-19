@@ -34,21 +34,27 @@
 
  function genreTable (articles) {
 let table = document.createElement("table")
- 	for (let artic of articles){
- 	let row = table.insertRow()
- 	row = articles.lenght
+table.classList.add("row")
+let firstRow = table.insertRow()
 
- 	for (let description in artic){
- 	// let cell = row.insertCell()	
- 	// cell.innerText = Object.keys(artic)	
 
- 	let cell_1 = row.insertCell()
- 	cell_1 = artic.description
- 	}
- 	
- 	}
-cell.append(row)
-row.append(table)
-table.append(table)
- }
- genreTable (articles)
+for (let key in articles[0]){
+let firstCell=firstRow.insertCell()
+// firstCell.classList.add("row")
+firstCell.innerText = key.toUpperCase()
+}
+
+for (let someObj of articles){
+	let rows = table.insertRow()
+	// rows.classList.add("row")
+for (let key in someObj){
+	let cell = rows.insertCell()
+	// cell.classList.add("row")
+	cell.innerText = someObj[key]
+}
+}
+
+document.querySelector(".table").append(table)
+
+}
+ genreTable(articles)	

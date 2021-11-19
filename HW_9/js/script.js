@@ -101,7 +101,7 @@ function modelHTML( booksByGenre, booksSection){
 
         let link = document.createElement('a')
         link.innerHTML = `
-        <a>Читать</a>`
+        <a href = "#">Читать</a>`
         link.classList.add('link');
     articles.append(span, img, description, link)
     bookCard.append(articles)

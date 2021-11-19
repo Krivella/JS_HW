@@ -1,0 +1,16 @@
+td  {
+	padding: 5px 0;
+	border: 1px solid black;
+}
+
+tbody{
+text-align: center;
+
+}
+
+tbody tr:nth-child(odd){
+	background-color: #F3E5F5;
+}
+tbody tr:first-child{
+background: purple;
+}
